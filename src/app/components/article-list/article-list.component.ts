@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from '../../models/article.model';
 import { CommonModule } from '@angular/common';
 import { ArticleThumbnailComponent } from '../article-thumbnail/article-thumbnail.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'article-list',
   standalone: true,
-  imports: [CommonModule, ArticleThumbnailComponent],
+  imports: [CommonModule, ArticleThumbnailComponent, HttpClientModule],
   templateUrl: './article-list.component.html',
   styleUrl: './article-list.component.scss',
 })

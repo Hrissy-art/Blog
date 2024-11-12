@@ -1,17 +1,22 @@
 <h2>Articles Populaires</h2>
 <div class="main-container">
-  @for (article of articles; ; track $index) {
+  @for ( article of articles; ; track $index) {
+    <div class="article-card">
 
-    <h2>{{ article.title }}</h2>
-    <p>{{ article.content }}</p>
+    <h3 class="article-title">{{ article.title }}</h3>
+    <p class="article-description">{{ article.content }}</p>
   <button (click)="viewArticle(article.id)">Voir les détails</button>
-
+</div>
+<div>
     @if (article.isPublished) {
   <app-article-thumbnail [article]="article" (notifyLike)="handleLike(article)"></app-article-thumbnail>
     }
+  </div>
 
   } 
    @empty {
   <p>Aucun article publié pour le moment</p>
   }
 </div>
+
+

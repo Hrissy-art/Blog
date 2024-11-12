@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .main-container {
   display: flex;
   justify-content: center;
@@ -14,7 +15,8 @@ h2 {
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  width: 300px;  /* Définit la largeur fixe des cartes */
+  width: 300px;
+  /* Définit la largeur fixe des cartes */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 

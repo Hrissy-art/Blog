@@ -1,1 +1,6 @@
-<p>Article id {{ articleId }}</p>
+<!-- <p>Article id {{ articleId }}</p> -->
+@if (article) {
+<h1>{{ article.title }}</h1>
+  <p>{{ article.content }}</p> 
+  <p> {{ article.image }}</p>
+}
