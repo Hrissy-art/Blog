@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Article } from '../../models/article.model';
 import { CommonModule } from '@angular/common';
 import { ArticleThumbnailComponent } from '../article-thumbnail/article-thumbnail.component';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'article-list',
@@ -10,7 +12,10 @@ import { ArticleThumbnailComponent } from '../article-thumbnail/article-thumbnai
   templateUrl: './article-list.component.html',
   styleUrl: './article-list.component.scss',
 })
-export class ArticleListComponent {
+export class ArticleListComponent implements OnInit {
+
+
+  
   articles: Article[] = [
     {
       id: 1,
@@ -193,4 +198,27 @@ export class ArticleListComponent {
   handleLike(article: Article) {
     article.isLiked = !article.isLiked;
   }
+
+  constructor(private http: HttpClient, private router: Router) {}
+
+  ngOnInit(): void {
+    this.getArticles();
+  }
+
+  getArticles(): void {
+    this.http.get<any[]>('http://localhost:3000/articles').subscribe(
+      (data) => {
+        this.articles = data;
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération des articles:', error);
+      }
+    );
+  }
+
+  viewArticle(id: number): void {
+    this.router.navigate(['/article', id]);
+  }
+
+
 }

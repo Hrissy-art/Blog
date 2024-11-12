@@ -1,6 +1,11 @@
 <h2>Articles Populaires</h2>
 <div class="main-container">
   @for (article of articles; ; track $index) {
+
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.content }}</p>
+  <button (click)="viewArticle(article.id)">Voir les détails</button>
+
     @if (article.isPublished) {
   <app-article-thumbnail [article]="article" (notifyLike)="handleLike(article)"></app-article-thumbnail>
     }
