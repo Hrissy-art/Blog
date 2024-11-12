@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-signup-form',
+  selector: 'signup-form',
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './signup-form.component.html',
   styleUrl: './signup-form.component.scss'
 })
 export class SignupFormComponent {
-  private formBuilder = injecting(FormBuilder);
+  private formBuilder = inject(FormBuilder);
 
   signUpForm = this.formBuilder.group({
-    username: ['', [Validators.require, Validators.minLength(3)]],
-    email: ['', [Validators.require, Validators.email]],
+    username: ['', [Validators.required, Validators.minLength(3)]],
+    email: ['', [Validators.required, Validators.email]],
     passwords: this.formBuilder.group({
-      password: ['', [Validators.require, this.securePasswordValidator()]],
+      password: ['', [Validators.required, this.securePasswordValidator()]],
       confirmPassword: ['']
     }, { validators: this.passwordMatchValidator() })
   });

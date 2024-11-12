@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ArticleThumbnailComponent } from '../article-thumbnail/article-thumbnail.component';
 
 @Component({
-  selector: 'app-article-list',
+  selector: 'article-list',
   standalone: true,
   imports: [CommonModule, ArticleThumbnailComponent],
   templateUrl: './article-list.component.html',
