@@ -211,7 +211,7 @@ export class ArticleListComponent implements OnInit {
         this.articles = data;
       },
       (error) => {
-        console.error('Erreur lors de la récupération des articles:', error);
+        console.error('Désolé rien à afficher:', error);
       }
     );
   }

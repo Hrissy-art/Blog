@@ -31,7 +31,7 @@ export class ArticlePageComponent implements OnInit {
         this.article = data;
       },
       (error) => {
-        console.error('Erreur lors de la récupération de l\'article:', error);
+        console.error('Désolé rien à afficher', error);
       }
     );
   }
