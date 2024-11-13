@@ -1,6 +1,7 @@
 <!-- <p>Article id {{ articleId }}</p> -->
-@if (article) {
-<h1>{{ article.title }}</h1>
-  <p>{{ article.content }}</p> 
-  <p> {{ article.image }}</p>
-}
+@if (article$ | async; as article) {
+  <div class="article-container">
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.content }}</p>
+  </div>
+  }
