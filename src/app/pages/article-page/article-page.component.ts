@@ -4,13 +4,13 @@ import { ArticleThumbnailComponent } from '../../components/article-thumbnail/ar
 import { Article } from '../../models/article.model';
 import {  HttpClient, HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../../services/api.service';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-article-page',
   standalone: true,
-  imports: [ AsyncPipe],
+  imports: [ AsyncPipe, CommonModule],
   templateUrl: './article-page.component.html',
   styleUrl: './article-page.component.scss'
 })
@@ -18,12 +18,12 @@ export class ArticlePageComponent {
   private route: ActivatedRoute = inject(ActivatedRoute);
   private http = inject(HttpClient);
   articlesId!: number;
-  article$!: Observable<Article>;
+  currentArticle$!: Observable<Article>;
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.articlesId = Number(params.get('id'));
-      this.article$ = this.getArticleById(this.articlesId);
+      this.currentArticle$ = this.getArticleById(this.articlesId);
     });
   }
 

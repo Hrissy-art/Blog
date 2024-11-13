@@ -15,12 +15,12 @@ import { Observable } from 'rxjs';
   styleUrl: './article-list.component.scss',
 })
 export class ArticleListComponent implements OnInit {
-  articles!: Observable<Article[]>;
+  currentArticles$!: Observable<Article[]>;
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
-    this.articles = this.apiService.getArticles();
+    this.currentArticles$ = this.apiService.getArticles();
   }
 
   handleLike(article: Article) {

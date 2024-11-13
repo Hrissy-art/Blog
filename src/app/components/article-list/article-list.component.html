@@ -1,6 +1,6 @@
 <h2>Articles Populaires</h2>
 <div class="main-container">
-  @for (article of articles | async; track article.id) {
+  @for (article of currentArticles$ | async; track article.id) {
     @if (article.isPublished) {
       <app-article-thumbnail
         [article]="article"
@@ -8,7 +8,7 @@
       ></app-article-thumbnail>
     }
   } @empty {
-  <p>Aucun article publié pour le moment</p>
+  <p>sorry no articles to display</p>
   }
 </div>
 
