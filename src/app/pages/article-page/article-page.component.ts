@@ -16,18 +16,18 @@ import { Observable } from 'rxjs';
 })
 export class ArticlePageComponent {
   private route: ActivatedRoute = inject(ActivatedRoute);
-  private http = inject(HttpClient);
+  private apiService = inject(ApiService);
   articlesId!: number;
   currentArticle$!: Observable<Article>;
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.articlesId = Number(params.get('id'));
-      this.currentArticle$ = this.getArticleById(this.articlesId);
+      this.currentArticle$ = this.apiService.getArticleById(this.articlesId);
     });
   }
 
-  getArticleById(id: number): Observable<Article> {
-    return this.http.get<Article>(`http://localhost:3000/articles/${id}`);
-  }
+  // getArticleById(id: number): Observable<Article> {
+  //   return this.http.get<Article>(`http://localhost:3000/articles/${id}`);
+  // }
 }

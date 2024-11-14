@@ -12,7 +12,7 @@ export class ApiService {
   getArticles(): Observable<Article[]> {
     return this.http.get<Article[]>(this.apiUrl);
   }
-  // getArticleById(id: number): Observable<Article> {
-  //   return this.http.get<Article>(`${this.apiUrl}/${id}`);
-  // }
+  getArticleById(id: number): Observable<Article> {
+    return this.http.get<Article>(`${this.apiUrl}/${id}`);
+  }
 }
