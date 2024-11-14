@@ -27,7 +27,5 @@ export class ArticlePageComponent {
     });
   }
 
-  // getArticleById(id: number): Observable<Article> {
-  //   return this.http.get<Article>(`http://localhost:3000/articles/${id}`);
-  // }
+  
 }
